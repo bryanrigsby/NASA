@@ -1,0 +1,41 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-12 text-center jumbotron mb-3 text-light bg-primary">
+            <h1>Near Earth Objects</h1>
+        </div>
+    </div>
+
+
+    <div class="row pt-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <input class="form-control" type="date" ng-change="change()" ng-model="neoSelectedDate">
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+
+    <div class="row pt-3" ng-repeat="obj in neoArray">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Name: {{obj.name}}</h5>
+                    <p class="card-text">Diameter: {{stringToIntAndTruncate(obj.estimated_diameter.feet.estimated_diameter_max) | number}} ft</p>
+                    <p class="card-text">Velocity: {{stringToIntAndTruncate(obj.close_approach_data[0].relative_velocity.miles_per_hour) | number}} mph</p>
+                    <p class="card-text">Distance from Earth: {{stringToIntAndTruncate(obj.close_approach_data[0].miss_distance.miles) | number}} miles</p>
+                    <p class="card-text"><a href="{{obj.nasa_jpl_url}}" target="_blank">More information</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col-md-12">
+            <navigation></navigation>
+        </div>
+    </div>
+
+</div>

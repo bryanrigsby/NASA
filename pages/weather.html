@@ -1,0 +1,33 @@
+﻿
+    <div>
+        <div class="row">
+            <div class="col-md-12 text-center jumbotron mb-3 text-light bg-primary">
+                <h1>Weather on Mars</h1>
+            </div>
+        </div>
+
+
+        <div class="row pt-3" ng-repeat="temp in solArray">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{temp.First_UTC | date: 'EEEE' }}</h5>
+                        <p class="card-text">Avg Temp: {{truncate(temp.AT.av) | number}}°F</p>
+                        <p class="card-text">Max Temp: {{truncate(temp.AT.mx) | number}}°F</p>
+                        <p class="card-text">Min Temp: {{truncate(temp.AT.mn) | number}}°F</p>
+                        <p class="card-text">Date: {{temp.First_UTC | date: 'MMM d, yyyy' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-md-12">
+                <navigation></navigation>
+            </div>
+        </div>
+
+
+
+
+
+    </div>

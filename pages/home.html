@@ -1,0 +1,69 @@
+﻿
+    <div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="jumbotron text-center text-light bg-primary mb-0"><h1>NASA Picture of the Day</h1></div>
+            </div>
+        </div>
+
+        <div class="row pt-3">
+            <div class="col-md-10" ng-if="isVideo">
+                <iframe src="{{picOfTheDayUrl}}" class="img-fluid border round" style="width:100%;height:40rem;" alt="NASA Video of the Day"></iframe>
+                <div>{{ picTitle }} </div>
+            </div>
+            <div class="col-md-10" ng-if="!isVideo">
+                <img src="{{picOfTheDayUrl}}" class="img-fluid border round" style="        width: 100%;
+        height: 40rem;
+" alt="NASA Picture of the Day" />
+                <div class="m-1 text-center">{{ picTitle }} </div>
+            </div>
+            <!--for medium screens-->
+            <div class="col-md-2 d-none d-sm-none d-md-block">
+                <navigation></navigation>
+                <div class="row pt-3">
+                    <div class="col-md-12">
+                        <div class="card text-center">
+                            <h5 class="card-header bg-primary text-white">NASA Open APIs</h5>
+                            <div class="card-body">
+                                <p class="card-text">Hello!  I am Bryan Rigsby, Software Engineer.</p>
+                                <p class="card-text">I needed some practice with AngularJS and APIs.</p>
+                                <p class="card-text">What better way then to explore the universe?!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--  -->
+
+        </div>
+
+        <!--for small screens-->
+
+        <div class="row pt-3 d-block d-sm-block d-md-none pb-2">
+            <div class="col-sm-12">
+                <div class="card text-center">
+                    <h5 class="card-header bg-primary text-white">NASA Open APIs</h5>
+                    <div class="card-body">
+                        <p class="card-text">Hello!  I am Bryan Rigsby, Software Engineer.</p>
+                        <p class="card-text">I needed some practice with AngularJS and APIs.</p>
+                        <p class="card-text">What better way than to explore the universe?!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-block d-sm-block d-md-none">
+            <div class="col-sm-12">
+                <navigation></navigation>
+            </div>
+        </div>
+
+
+        <!--  -->
+    </div>
+
+
+
+        </div>

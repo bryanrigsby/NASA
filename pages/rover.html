@@ -1,0 +1,108 @@
+﻿
+    <div>
+        <div class="row">
+            <div class="col-md-12 text-center jumbotron text-light bg-primary mb-3">
+                <h1>Mars Rover Photos</h1>
+            </div>
+        </div>
+
+
+
+        <form class="form-group" ng-submit="submit()" ng-controller="roverController">
+            <div class="row">
+                <div class="col-md-3 pb-1">
+                    <input class="form-control" type="date" ng-model="roverSelectedDate" />
+                </div>
+
+
+
+                <div class="col-md-3 pb-1">
+                    <select class="form-control" ng-model="roverName" ng-change="roverChange()">
+                        <option value="" disabled selected>Rover Name</option>
+                        <option ng-repeat="r in rovers" value="{{r.name}}">{{r.displayName}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 pb-1">
+                    <select class="form-control" ng-model="roverCamera">
+                        <option value="" disabled selected>Camera Name</option>
+                        <option ng-if="curiosityCameraBool" ng-repeat="c in curiosityCameras" value="{{c.acronym}}">{{c.name}}</option>
+                        <option ng-if="!curiosityCameraBool" ng-repeat="s in spiritAndOpportunityCameras" value="{{s.acronym}}">{{s.name}}</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-3">
+                    <input class="form-control btn btn-primary" type="submit" id="submit" value="Search" />
+                </div>
+            </div>
+
+            <div class="row text-danger" ng-if="error">
+                <div class="col-md-12">{{ errorText }}</div>
+
+
+            </div>
+
+            <!--for medium screens-->
+
+
+            <div class="row pt-3">
+                <div class="col-md-10 pb-3">
+                    <img src="{{roverUrl}}" class="img-fluid border round" style="width: 100%; height: 40rem;" alt="Transmitting from space..." />
+                    <div class="text-danger">*image may take a few seconds to load</div>
+                </div>
+                <div class="col-md-2 d-none d-sm-none d-md-block">
+                    <navigation></navigation>
+                    <div class="row pt-3">
+                        <div class="col-md-12">
+                            <div class="card text-center">
+                                <h5 class="card-header bg-primary text-white">Mars Weather</h5>
+                                <div class="card-body">
+                                    <p class="card-text">{{date | date: 'MMM d, yyyy' }}</p>
+                                    <p class="card-text">Avg Temp: {{truncate(avgTemp) | number}}°F</p>
+                                    <p class="card-text">Max Temp: {{truncate(maxTemp) | number}}°F</p>
+                                    <p class="card-text">Min Temp: {{truncate(minTemp) | number}}°F</p>
+                                    <p class="card-text">Avg Wind Speed: {{truncate(windSpeed) | number}}m/s</p>
+                                    <p class="card-text text-capitalize">{{season}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--  -->
+            <!--for small screens-->
+
+            <div class="row pt-3 d-block d-sm-block d-md-none pb-2">
+                <div class="col-sm-12">
+                    <div class="card text-center">
+                        <h5 class="card-header bg-primary text-white">Mars Weather</h5>
+                        <div class="card-body">
+                            <p class="card-text">{{date | date: 'MMM d, yyyy' }}</p>
+                            <p class="card-text">Avg Temp: {{truncate(avgTemp) | number}}°F</p>
+                            <p class="card-text">Max Temp: {{truncate(maxTemp) | number}}°F</p>
+                            <p class="card-text">Min Temp: {{truncate(minTemp) | number}}°F</p>
+                            <p class="card-text">Avg Wind Speed: {{truncate(windSpeed) | number}}m/s</p>
+                            <p class="card-text text-capitalize">{{season}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-block d-sm-block d-md-none">
+                <div class="col-sm-12">
+                    <navigation></navigation>
+                </div>
+            </div>
+            <!--  -->
+        </form>
+
+
+
+    </div>
+
+
+
+
